@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moon Gazing Hare Bars | Hare-Raisingly Great Bars</title>
+<meta name="description" content="Premium mobile bar hire for festivals, weddings & events across the UK. Real ales, cocktails, prosecco & more. Over 30 years experience.">
+<meta property="og:title" content="Moon Gazing Hare Bars">
+<meta property="og:description" content="Hare-raisingly great bars for festivals, weddings & events.">
+<meta property="og:type" content="website">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Moon Gazing Hare Bars",
+  "description": "Premium mobile bar hire for festivals, weddings and events across the UK.",
+  "url": "https://www.moongazingharebars.co.uk",
+  "telephone": "",
+  "address": { "@type": "PostalAddress", "addressCountry": "GB" },
+  "servesCuisine": ["Cocktails", "Real Ale", "Wine", "Prosecco"]
+}
+
+  // Video hero — no slideshow JS needed
+
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --cream: #F5EDD6;
+    --dark: #0A0804;
+    --dark2: #12100A;
+    --dark3: #1C1812;
+    --text: #D4C4A0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── STARS CANVAS ── */
+  #stars-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 0.4s ease;
+    background: rgba(10, 8, 4, 0.97) !important;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  }
+
+  nav.scrolled {
+    padding: 14px 48px;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    border: 1.5px solid var(--gold);
+    color: var(--dark) !important;
+    padding: 8px 22px;
+    border-radius: 2px;
+    opacity: 1 !important;
+    font-weight: 700;
+    transition: all 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; border-color: var(--gold-light) !important; color: var(--dark) !important; transform: translateY(-1px); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cream);
+    transition: all 0.3s;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  /* ── VIDEO HERO ── */
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10,8,4,0.5) 0%,
+      rgba(10,8,4,0.25) 40%,
+      rgba(10,8,4,0.65) 80%,
+      rgba(10,8,4,1) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 24px;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #FFE082;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.3s forwards;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.9), 0 0px 24px rgba(0,0,0,0.95);
+    background: rgba(0,0,0,0.35);
+    padding: 6px 16px;
+    border-radius: 2px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: #fff;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.9s ease 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(245, 237, 214, 0.85);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 15px 36px;
+    border: 2px solid var(--gold);
+    border-radius: 2px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.35);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    padding: 15px 36px;
+    border: 1.5px solid rgba(245,237,214,0.4);
+    border-radius: 2px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+  }
+
+  .hero-scroll span {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.5);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.8), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.6; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; z-index: 1; }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  .section-body {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(212,196,160,0.8);
+    max-width: 560px;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    background: var(--gold);
+    overflow: hidden;
+    padding: 14px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .marquee-item {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dark);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .marquee-item::after {
+    content: '◆';
+    font-size: 0.5rem;
+    opacity: 0.5;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    padding: 120px 48px;
+    background: var(--dark);
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .about-img-accent {
+    position: absolute;
+    bottom: -28px;
+    right: -28px;
+    width: 55%;
+    aspect-ratio: 1;
+    border: 2px solid var(--gold);
+    border-radius: 2px;
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+  .about-badge {
+    position: absolute;
+    top: 28px;
+    right: -24px;
+    background: var(--gold);
+    color: var(--dark);
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 900;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+  }
+
+  .about-badge .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .about-badge .lbl {
+    font-size: 0.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .about-text { padding-top: 20px; }
+
+  .stats-row {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .stat-item { flex: 1; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(212,196,160,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    padding: 120px 48px;
+    background: var(--dark2);
+  }
+
+  .services-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 72px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+    display: block;
+  }
+
+  .service-card:hover img { transform: scale(1.08); }
+
+  .service-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,8,4,0.95) 0%, rgba(10,8,4,0.3) 60%, transparent 100%);
+    transition: all 0.4s;
+  }
+
+  .service-card:hover .service-overlay {
+    background: linear-gradient(to top, rgba(10,8,4,0.98) 0%, rgba(10,8,4,0.5) 60%, rgba(10,8,4,0.1) 100%);
+  }
+
+  .service-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 36px 28px;
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+    transform: translateY(0);
+    transition: transform 0.4s ease;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(212,196,160,0.75);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .service-card:hover .service-desc {
+    max-height: 120px;
+    opacity: 1;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 14px;
+    text-decoration: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease 0.05s, opacity 0.4s ease 0.05s;
+  }
+
+  .service-card:hover .service-link {
+    max-height: 40px;
+    opacity: 1;
+  }
+
+  /* ── BUS BAR FEATURE ── */
+  #bus {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .bus-bg {
+    position: absolute;
+    inset: 0;
+    background: url('https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/665c9e5b1_whatsapp_image_1622236548855555.jpg') center/cover no-repeat;
+    transform: scale(1.05);
+  }
+
+  .bus-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(10,8,4,0.97) 0%, rgba(10,8,4,0.97) 50%, rgba(10,8,4,0.4) 100%);
+  }
+
+  .bus-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+    max-width: 580px;
+    margin-left: 8%;
+  }
+
+  .bus-feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    padding: 120px 48px;
+    background: var(--dark);
+  }
+
+  .testimonials-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonials-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 72px;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 2px;
+    padding: 36px 28px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(201,168,76,0.35);
+    transform: translateY(-4px);
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: 12px;
+    left: 24px;
+    line-height: 1;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 16px;
+    color: var(--gold);
+    font-size: 0.8rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.92rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(212,196,160,0.85);
+    font-style: italic;
+    margin-bottom: 24px;
+    padding-top: 12px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .testimonial-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--cream);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .testimonial-role {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  /* ── DRINKS ── */
+  #drinks {
+    padding: 120px 48px;
+    background: var(--dark2);
+  }
+
+  .drinks-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .drinks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 36px;
+  }
+
+  .drink-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    transition: padding-left 0.3s;
+    cursor: default;
+  }
+
+  .drink-item:hover { padding-left: 8px; }
+
+  .drink-icon {
+    font-size: 1.4rem;
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .drink-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .drink-desc {
+    font-size: 0.78rem;
+    color: rgba(212,196,160,0.55);
+    margin-top: 2px;
+    font-weight: 300;
+  }
+
+  .drinks-img-stack {
+    position: relative;
+  }
+
+  .drinks-img-main {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .drinks-img-float {
+    position: absolute;
+    bottom: -32px;
+    left: -32px;
+    width: 55%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 2px;
+    border: 4px solid var(--dark2);
+  }
+
+  /* ── CTA ── */
+  #contact {
+    padding: 140px 48px;
+    background: var(--dark);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .contact-title em { font-style: italic; color: var(--gold-light); }
+
+  .contact-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(212,196,160,0.75);
+    line-height: 1.8;
+    margin-bottom: 44px;
+  }
+
+  .contact-options {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+
+  .contact-card {
+    background: var(--dark2);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 24px 32px;
+    border-radius: 2px;
+    text-align: left;
+    min-width: 200px;
+    flex: 1;
+    max-width: 240px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .contact-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .contact-card-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .contact-card-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .contact-card-value {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(212,196,160,0.4);
+  }
+
+  .footer-wdg {
+    font-size: 0.72rem;
+    color: rgba(212,196,160,0.3);
+    font-style: italic;
+  }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+  /* ── KEYFRAMES ── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    #about { padding: 80px 24px; }
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-badge { right: 16px; }
+
+    #services { padding: 80px 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { aspect-ratio: 4/3; }
+    .service-desc { max-height: 120px; opacity: 1; }
+    .service-link { max-height: 40px; opacity: 1; }
+
+    #bus .bus-inner { margin-left: 0; padding: 80px 24px; }
+    .bus-overlay { background: rgba(10,8,4,0.88); }
+
+    #testimonials { padding: 80px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    #drinks { padding: 80px 24px; }
+    .drinks-inner { grid-template-columns: 1fr; gap: 48px; }
+    .drinks-img-float { display: none; }
+
+    #contact { padding: 80px 24px; }
+    .contact-options { flex-direction: column; align-items: center; }
+    .contact-card { max-width: 100%; width: 100%; }
+
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Stars canvas -->
+<canvas id="stars-canvas"></canvas>
+
+<!-- Nav -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">Moon Gazing Hare</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#bus">Olive the Bus</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <!-- Fullscreen background video -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://media.base44.com/images/public/6a0c1534017166f536b1ac32/f6ce180ef_generated_image.png">
+    <source src="https://media.base44.com/videos/public/6a0c1534017166f536b1ac32/309ec2d24_moongazing_hero_slow.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content" style="position:relative;z-index:2;">
+    <span class="hero-eyebrow">🐇 Est. 30+ Years · Festivals · Weddings · Events</span>
+    <h1 class="hero-title">Hare-Raisingly<br><em>Great Bars</em></h1>
+    <p class="hero-subtitle">Innovative, imaginative, unforgettable. We bring the bar experience to your festival, wedding or event — from hand-pulled real ales to expertly crafted cocktails.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Book Your Bar</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee">
+    <div class="marquee-item">Real Ales</div>
+    <div class="marquee-item">Craft Cider</div>
+    <div class="marquee-item">Cocktail Bars</div>
+    <div class="marquee-item">Prosecco</div>
+    <div class="marquee-item">Festivals</div>
+    <div class="marquee-item">Weddings</div>
+    <div class="marquee-item">Fine Wines</div>
+    <div class="marquee-item">Pop-up Bars</div>
+    <div class="marquee-item">30+ Years Experience</div>
+    <div class="marquee-item">Real Ales</div>
+    <div class="marquee-item">Craft Cider</div>
+    <div class="marquee-item">Cocktail Bars</div>
+    <div class="marquee-item">Prosecco</div>
+    <div class="marquee-item">Festivals</div>
+    <div class="marquee-item">Weddings</div>
+    <div class="marquee-item">Fine Wines</div>
+    <div class="marquee-item">Pop-up Bars</div>
+    <div class="marquee-item">30+ Years Experience</div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap reveal-left">
+      <img class="about-img" src="https://media.base44.com/images/public/6a0c1534017166f536b1ac32/f6ce180ef_generated_image.png" alt="Moon Gazing Hare bartender">
+      <div class="about-img-accent"></div>
+      <div class="about-badge">
+        <span class="num">30+</span>
+        <span class="lbl">Years of Magic</span>
+      </div>
+    </div>
+    <div class="about-text reveal-right">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">Passionate About the <em>Perfect Pour</em></h2>
+      <p class="section-body">With over 30 years in the business covering all aspects of bar and event management, Moon Gazing Hare Bars has built a reputation that speaks for itself.</p>
+      <p class="section-body" style="margin-top:16px;">Our portfolio spans festivals, weddings, Christmas fayres and pop-up bars in the most unique and unusual locations. We don't just supply bars — we create atmospheres that your guests will talk about for years.</p>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Events Served</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Client Focused</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="services-inner">
+    <div class="services-header reveal">
+      <p class="section-label">What We Do</p>
+      <h2 class="section-title">Every Event. <em>Every Bar.</em></h2>
+      <p class="section-body" style="margin:0 auto;text-align:center">Whether it's a 5,000-person festival or an intimate wedding — we tailor every bar to your audience, your vision, and your brand.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <img src="https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/14721466e_whatsapp_image_1997714877507167.jpg" alt="Festivals">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-icon">🎪</span>
+          <div class="service-name">Festivals</div>
+          <p class="service-desc">From folk to food festivals, we bring real character to your event bar. Hand-pulled ales, scrumpy ciders, and knowledgeable staff who love what they do.</p>
+          <a href="#contact" class="service-link">Book Now →</a>
+        </div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.1s">
+        <img src="https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/665c9e5b1_whatsapp_image_1622236548855555.jpg" alt="Weddings">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-icon">💒</span>
+          <div class="service-name">Weddings</div>
+          <p class="service-desc">Your perfect day deserves the perfect bar. We work with you to create something truly memorable — from prosecco receptions to full cocktail service.</p>
+          <a href="#contact" class="service-link">Book Now →</a>
+        </div>
+      </div>
+      <div class="service-card reveal" style="transition-delay:0.2s">
+        <img src="https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/665c9e5b1_whatsapp_image_1622236548855555.jpg" alt="Events">
+        <div class="service-overlay"></div>
+        <div class="service-content">
+          <span class="service-icon">🥂</span>
+          <div class="service-name">Corporate & Pop-up</div>
+          <p class="service-desc">Christmas fayres, corporate events, pop-up bars in unique locations. We've done it all — and we'll make yours feel effortless.</p>
+          <a href="#contact" class="service-link">Book Now →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bus Bar Feature -->
+<section id="bus">
+  <div class="bus-bg" id="bus-bg"></div>
+  <div class="bus-overlay"></div>
+  <div class="bus-inner">
+    <div class="reveal-left">
+      <div class="bus-feature-tag">🚌 Featured</div>
+      <p class="section-label">Meet the Star of the Show</p>
+      <h2 class="section-title" style="max-width:480px">Olive the <em>Bus Bar</em></h2>
+      <p class="section-body">Our crown jewel — a beautifully converted vintage bus that turns heads wherever she goes. Olive brings something truly unique to your event: a full working bar on wheels, dripping in character and loaded with premium drinks.</p>
+      <p class="section-body" style="margin-top:16px">Perfect as a centrepiece for weddings, festivals or private events. Guests don't just drink — they experience.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:36px">Enquire About Olive</a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header reveal">
+      <p class="section-label">What They Say</p>
+      <h2 class="section-title">Trusted by the <em>Best Events</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We knew we were in safe hands the moment we appointed Moon Gazing Hare. Our discerning festival-goers were absolutely delighted — roll on next year!"</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Sandra Surtees</span>
+          <span class="testimonial-role">Shrewsbury Folk Festival</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:0.1s">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Moon Gazing Hare freely contributes their experience at the planning stage, and ensures the end product is of the highest quality. The positive feedback speaks for itself."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Shawn Riley</span>
+          <span class="testimonial-role">Evesham Market Town Partnership</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:0.2s">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Innovative, imaginative and completely customer-focused. They understood exactly what our audience wanted and delivered it flawlessly from start to finish."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">Event Organiser</span>
+          <span class="testimonial-role">Midlands Festival Circuit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Drinks -->
+<section id="drinks">
+  <div class="drinks-inner">
+    <div class="reveal-left">
+      <p class="section-label">The Drinks</p>
+      <h2 class="section-title">From Barrel <em>to Belly</em></h2>
+      <p class="section-body">We care deeply about quality — only buying the best, then looking after it every step of the way. Every pour is backed by genuine knowledge and passion.</p>
+      <div class="drinks-list">
+        <div class="drink-item">
+          <span class="drink-icon">🍺</span>
+          <div>
+            <div class="drink-name">Real Ales & Cask</div>
+            <div class="drink-desc">Hand-pulled, locally sourced where possible, always properly kept</div>
+          </div>
+        </div>
+        <div class="drink-item">
+          <span class="drink-icon">🍎</span>
+          <div>
+            <div class="drink-name">Craft Cider & Scrumpy</div>
+            <div class="drink-desc">Traditional scrumpy to premium artisan ciders</div>
+          </div>
+        </div>
+        <div class="drink-item">
+          <span class="drink-icon">🍸</span>
+          <div>
+            <div class="drink-name">Cocktail Bar</div>
+            <div class="drink-desc">Classic and contemporary cocktails, made properly</div>
+          </div>
+        </div>
+        <div class="drink-item">
+          <span class="drink-icon">🥂</span>
+          <div>
+            <div class="drink-name">Prosecco & Fine Wines</div>
+            <div class="drink-desc">Carefully selected wines and sparkling for any occasion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drinks-img-stack reveal-right">
+      <img class="drinks-img-main" src="https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/665c9e5b1_whatsapp_image_1622236548855555.jpg" alt="Premium cocktails">
+      <img class="drinks-img-float" src="https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/14721466e_whatsapp_image_1997714877507167.jpg" alt="Event marquee setup">
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section id="contact">
+  <div class="contact-glow"></div>
+  <div class="contact-inner reveal">
+    <p class="section-label" style="text-align:center">Let's Work Together</p>
+    <h2 class="contact-title">Ready to Create Something <em>Unforgettable?</em></h2>
+    <p class="contact-body">Tell us about your event and we'll make it happen. Whether it's a 200-person wedding or a 5,000-person festival — we'd love to hear from you.</p>
+    <a href="mailto:info@moongazingharebars.co.uk" class="btn-primary">Send Us a Message</a>
+    <div class="contact-options">
+      <div class="contact-card">
+        <div class="contact-card-icon">📧</div>
+        <div class="contact-card-label">Email Us</div>
+        <div class="contact-card-value">info@moongazingharebars.co.uk</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🎪</div>
+        <div class="contact-card-label">We Cover</div>
+        <div class="contact-card-value">UK Wide — Festivals, Weddings & Events</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-card-icon">🚌</div>
+        <div class="contact-card-label">Olive the Bus</div>
+        <div class="contact-card-value">Unique mobile bar hire — ask us!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-brand">Moon Gazing Hare Bars</div>
+  <div class="footer-copy">© 2026 Moon Gazing Hare Bars. All rights reserved.</div>
+  <div class="footer-wdg">Website concept by WDG Videography</div>
+</footer>
+
+<script>
+  // ── Stars ──
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function createStars() {
+    stars = [];
+    for (let i = 0; i < 180; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.2,
+        alpha: Math.random(),
+        speed: Math.random() * 0.005 + 0.002,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function animateStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const a = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(t * s.speed * 1000 + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,248,220,${a * 0.7})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(animateStars);
+  }
+
+  resizeCanvas();
+  createStars();
+  requestAnimationFrame(animateStars);
+  window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+  // ── Parallax ──
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    // hero parallax removed — slideshow handles animation
+    const busBg = document.getElementById('bus-bg');
+    if (busBg) {
+      const busRect = document.getElementById('bus').getBoundingClientRect();
+      busBg.style.transform = `scale(1.05) translateY(${busRect.top * 0.15}px)`;
+    }
+
+    // Navbar
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', sy > 50);
+  });
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+  // ── Mobile menu ──
+  function toggleMenu(btn) {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'fixed';
+    links.style.top = '0';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.bottom = '0';
+    links.style.background = 'rgba(10,8,4,0.97)';
+    links.style.alignItems = 'center';
+    links.style.justifyContent = 'center';
+    links.style.gap = '32px';
+    links.style.zIndex = '999';
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      links.style.display = 'none';
+    });
+  });
+</script>
+</body>
+</html>
