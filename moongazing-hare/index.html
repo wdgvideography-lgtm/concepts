@@ -103,16 +103,17 @@
   .nav-links a:hover { opacity: 1; color: var(--gold); }
 
   .nav-cta {
-    background: transparent;
+    background: var(--gold);
     border: 1.5px solid var(--gold);
-    color: var(--gold) !important;
+    color: var(--dark) !important;
     padding: 8px 22px;
     border-radius: 2px;
     opacity: 1 !important;
+    font-weight: 700;
     transition: all 0.2s !important;
   }
 
-  .nav-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; border-color: var(--gold-light) !important; color: var(--dark) !important; transform: translateY(-1px); }
 
   .nav-hamburger {
     display: none;
