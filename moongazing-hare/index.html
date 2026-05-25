@@ -20,6 +20,42 @@
   "address": { "@type": "PostalAddress", "addressCountry": "GB" },
   "servesCuisine": ["Cocktails", "Real Ale", "Wine", "Prosecco"]
 }
+
+  // ── HERO SLIDESHOW ──
+  (function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.hero-dot');
+    let current  = 0;
+    let timer;
+
+    function goToSlide(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      // Restart animation by clone trick
+      const s = slides[current];
+      s.style.animation = 'none';
+      s.offsetHeight; // reflow
+      s.style.animation = '';
+    }
+
+    window.goToSlide = goToSlide;
+
+    function next() { goToSlide(current + 1); }
+
+    // Init first slide
+    slides[0].classList.add('active');
+
+    // Auto-advance every 6s
+    timer = setInterval(next, 6000);
+
+    // Pause on hover
+    document.getElementById('hero').addEventListener('mouseenter', () => clearInterval(timer));
+    document.getElementById('hero').addEventListener('mouseleave', () => { timer = setInterval(next, 6000); });
+  })();
+
 </script>
 
 <style>
@@ -145,24 +181,81 @@
     z-index: 1;
   }
 
-  .hero-bg {
+  /* ── SLIDESHOW ── */
+  .hero-slide {
     position: absolute;
     inset: 0;
-    background: url('https://media.base44.com/images/public/6a0c1534017166f536b1ac32/2937bf3f8_generated_image.png') center/cover no-repeat;
-    transform: scale(1.08);
-    transition: transform 0.1s linear;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+    will-change: transform, opacity;
   }
+
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  /* Ken Burns animations */
+  @keyframes kenBurns1 {
+    0%   { transform: scale(1.0) translate(0%, 0%); }
+    100% { transform: scale(1.15) translate(-2%, -2%); }
+  }
+  @keyframes kenBurns2 {
+    0%   { transform: scale(1.1) translate(2%, 0%); }
+    100% { transform: scale(1.0) translate(-1%, 2%); }
+  }
+  @keyframes kenBurns3 {
+    0%   { transform: scale(1.0) translate(-1%, 2%); }
+    100% { transform: scale(1.12) translate(2%, -1%); }
+  }
+  @keyframes kenBurns4 {
+    0%   { transform: scale(1.12) translate(0%, -2%); }
+    100% { transform: scale(1.0) translate(1%, 1%); }
+  }
+
+  .hero-slide.active:nth-child(1) { animation: kenBurns1 7s ease forwards; }
+  .hero-slide.active:nth-child(2) { animation: kenBurns2 7s ease forwards; }
+  .hero-slide.active:nth-child(3) { animation: kenBurns3 7s ease forwards; }
+  .hero-slide.active:nth-child(4) { animation: kenBurns4 7s ease forwards; }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(10,8,4,0.55) 0%,
-      rgba(10,8,4,0.3) 40%,
-      rgba(10,8,4,0.6) 80%,
+      rgba(10,8,4,0.45) 0%,
+      rgba(10,8,4,0.2) 40%,
+      rgba(10,8,4,0.65) 80%,
       rgba(10,8,4,1) 100%
     );
+    z-index: 1;
+  }
+
+  /* Progress dots */
+  .hero-dots {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+  }
+
+  .hero-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.35);
+    transition: all 0.4s ease;
+    cursor: pointer;
+  }
+
+  .hero-dot.active {
+    background: var(--gold);
+    width: 24px;
+    border-radius: 3px;
   }
 
   .hero-content {
@@ -1012,9 +1105,20 @@
 
 <!-- Hero -->
 <section id="hero">
-  <div class="hero-bg" id="hero-bg"></div>
+  <!-- Slideshow slides -->
+  <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/6a0c1534017166f536b1ac32/2937bf3f8_generated_image.png')"></div>
+  <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/6a0c1534017166f536b1ac32/f6ce180ef_generated_image.png')"></div>
+  <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/14721466e_whatsapp_image_1997714877507167.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('https://media.base44.com/images/public/whatsapp/6a0c1534017166f536b1ac32/your_agent/6a0c1534017166f536b1ac33/665c9e5b1_whatsapp_image_1622236548855555.jpg')"></div>
   <div class="hero-overlay"></div>
-  <div class="hero-content">
+  <!-- Dots -->
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goToSlide(0)"></div>
+    <div class="hero-dot" onclick="goToSlide(1)"></div>
+    <div class="hero-dot" onclick="goToSlide(2)"></div>
+    <div class="hero-dot" onclick="goToSlide(3)"></div>
+  </div>
+  <div class="hero-content" style="position:relative;z-index:2;">
     <span class="hero-eyebrow">🐇 Est. 30+ Years · Festivals · Weddings · Events</span>
     <h1 class="hero-title">Hare-Raisingly<br><em>Great Bars</em></h1>
     <p class="hero-subtitle">Innovative, imaginative, unforgettable. We bring the bar experience to your festival, wedding or event — from hand-pulled real ales to expertly crafted cocktails.</p>
@@ -1307,8 +1411,7 @@
   // ── Parallax ──
   window.addEventListener('scroll', () => {
     const sy = window.scrollY;
-    const heroBg = document.getElementById('hero-bg');
-    if (heroBg) heroBg.style.transform = `scale(1.08) translateY(${sy * 0.3}px)`;
+    // hero parallax removed — slideshow handles animation
     const busBg = document.getElementById('bus-bg');
     if (busBg) {
       const busRect = document.getElementById('bus').getBoundingClientRect();
